@@ -1,12 +1,11 @@
 from django.shortcuts import render
 from .models import Post
-from django.contrib.auth.decorators import login_required
+
 
 # from django.views.generic import ListView, FormView, CreateView
 # from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-@login_required
 def home(request):
     return render(
         request,
