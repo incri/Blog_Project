@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #added apps
     'apps.blog',
+    'apps.post_space'
 ]
 
 MIDDLEWARE = [
