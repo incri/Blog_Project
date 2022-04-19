@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from apps.login.views import loginviews
+from apps.post_space.views import PostUpdateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.urls')),
     path('accounts/login/', loginviews.as_view()),
+    path('<int:pk>/update/', PostUpdateView.as_view(), name='update')
 ]

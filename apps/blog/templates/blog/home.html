@@ -20,6 +20,8 @@
         <small>
             {{ post.date_posted }}
         </small>
+        <br>
+        <a href="{% url 'update' post.id %}">edit</a> 
     {% endfor %}
 </body>
 </html>
