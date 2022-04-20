@@ -1,7 +1,9 @@
 from django.shortcuts import redirect, render
-from .forms import PostForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView
+from django.contrib.auth.decorators import login_required
+
+from .forms import PostForm
 from apps.blog.models import Post
 
 
@@ -17,9 +19,11 @@ def post_space(request):
             return redirect('home-page')
 
 
-class PostUpdateView(UpdateView):
+class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
-    queryset = Post.objects.all()
     fields = ['content']
     template_name = 'post_space/update_form.html'
     success_url = '/home/'
+
+    def get_queryset(self):
+        return Post.objects.filter(author=self.request.user)
