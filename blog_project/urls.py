@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from apps.login.views import loginviews
 from apps.post_space.views import PostUpdateView
+from apps.login.views import RegisterViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.urls')),
     path('accounts/login/', loginviews.as_view()),
-    path('<int:pk>/update/', PostUpdateView.as_view(), name='update')
+    path('<int:pk>/update/', PostUpdateView.as_view(), name='update'),
+    path('resister/', RegisterViews.as_view(), name='resister'),
 ]

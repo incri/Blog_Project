@@ -7,4 +7,5 @@ urlpatterns = [
     # path('posts/', views.PostList.as_view(), name='post-list')
     path('post/', _views.post_space),
     # path('create/', views.PostCreateView.as_view())
+    
 ]
