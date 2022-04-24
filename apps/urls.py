@@ -5,7 +5,7 @@ from .post_space import views as _views
 urlpatterns = [
     path('home/', views.home, name="home-page"),
     # path('posts/', views.PostList.as_view(), name='post-list')
-    path('post/', _views.post_space),
+    path('post/', _views.post_space, name='post-page'),
     # path('create/', views.PostCreateView.as_view())
     
 ]

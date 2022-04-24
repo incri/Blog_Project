@@ -7,6 +7,10 @@
     <title>blog_project</title>
 </head>
 <body>
+    <a href="{% url 'resister' %}">SignUP</a>
+    <a href="{% url 'login-page' %}">Login</a>
+    <br>
+    <a href="{% url 'post-page' %}">Create Post</a>
     {% for post in posts %}
         <h1>
             {{ post.title }}

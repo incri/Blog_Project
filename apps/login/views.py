@@ -9,6 +9,7 @@ from .forms import RegisterForm
 
 class loginviews(_loginviews):
     template_name = 'login/login_page.html'
+    success_url = reverse_lazy('/home/')
 
 
 class RegisterViews(CreateView):

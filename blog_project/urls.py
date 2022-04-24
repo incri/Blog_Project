@@ -22,7 +22,7 @@ from apps.login.views import RegisterViews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.urls')),
-    path('accounts/login/', loginviews.as_view()),
+    path('accounts/login/', loginviews.as_view(), name='login-page'),
     path('<int:pk>/update/', PostUpdateView.as_view(), name='update'),
     path('resister/', RegisterViews.as_view(), name='resister'),
 ]
