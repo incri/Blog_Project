@@ -11,6 +11,7 @@
     <a href="{% url 'login-page' %}">Login</a>
     <br>
     <a href="{% url 'post-page' %}">Create Post</a>
+    <a href="{% url 'logout-page' %}">Logout</a>
     {% for post in posts %}
         <h1>
             {{ post.title }}
@@ -27,6 +28,7 @@
         <br>
         {% if user == post.author %}
             <a href="{% url 'update' post.id %}">edit</a> 
+            <a href="{% url 'delete' post.id %}">delete</a>
         {% endif %}
         
     {% endfor %}

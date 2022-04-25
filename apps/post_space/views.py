@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 
 from .forms import PostForm
@@ -27,3 +27,9 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_queryset(self):
         return Post.objects.filter(author=self.request.user)
+
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'post_space/delete.html'
+    success_url = '/home/'

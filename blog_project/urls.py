@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from apps.login.views import loginviews
-from apps.post_space.views import PostUpdateView
+from apps.post_space.views import PostDeleteView, PostUpdateView
 from apps.login.views import RegisterViews
+from apps.login.views import LogoutViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +26,6 @@ urlpatterns = [
     path('accounts/login/', loginviews.as_view(), name='login-page'),
     path('<int:pk>/update/', PostUpdateView.as_view(), name='update'),
     path('resister/', RegisterViews.as_view(), name='resister'),
+    path('accounts/logout/', LogoutViews.as_view(), name='logout-page'),
+    path('<int:pk>/delete/', PostDeleteView.as_view(), name='delete'),
 ]
