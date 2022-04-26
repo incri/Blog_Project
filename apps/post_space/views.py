@@ -13,8 +13,10 @@ def post_space(request):
         form = PostForm()
         return render(request, 'post_space/post.html', {'form': form})
     else:
-        post = PostForm(request.POST)
-        if post.is_valid():
+        post_form = PostForm(request.POST)
+        if post_form.is_valid():
+            post = post_form.save(commit=False)
+            post.author = request.user
             post.save()
             return redirect('home-page')
 
