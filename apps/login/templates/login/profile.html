@@ -7,10 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Do you really want to delete this post ?</h3>
-    <form method="post">
-      {% csrf_token %}
-      {{form.as_p}}
-      <button type="submit">Delete</button>
-    </form> 
+    {% extends "apps/blog/home.html" %}
+    {% load crispy_forms_tags %}
+    {% block content %}
+    <h1>{{ user.username }}</h1>
+    {% endblock content %}
+</body>
 </html>

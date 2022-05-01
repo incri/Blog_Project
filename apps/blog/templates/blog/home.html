@@ -7,11 +7,13 @@
     <title>blog_project</title>
 </head>
 <body>
-    <a href="{% url 'resister' %}">SignUP</a>
-    <a href="{% url 'login-page' %}">Login</a>
-    <br>
-    <a href="{% url 'post-page' %}">Create Post</a>
-    <a href="{% url 'logout-page' %}">Logout</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'post-page' %}">Create Post</a>
+        <a href="{% url 'logout-page' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'resister' %}">SignUP</a>
+        <a href="{% url 'login-page' %}">Login</a>
+    {% endif %}
     {% for post in posts %}
         <h1>
             {{ post.title }}

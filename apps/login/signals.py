@@ -9,7 +9,7 @@ from django.utils import timezone
 
 from apps.login.models import UserActivity
 
-# 
+
 @receiver(post_save, sender=User)
 def create_user_activity(sender, instance, created, **kwargs):
     if created:

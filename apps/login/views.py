@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from .forms import RegisterForm
 from django.contrib.auth.views import LogoutView as _logoutviews
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 
 # login Views
 
@@ -37,3 +38,8 @@ class RegisterViews(CreateView):
 
 class LogoutViews(_logoutviews):
     success_url = reverse_lazy('home-page')
+
+
+@login_required 
+def profile(request):
+    return (request, 'profile.html')
