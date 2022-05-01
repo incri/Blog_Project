@@ -19,7 +19,7 @@ from apps.login.views import loginviews
 from apps.post_space.views import PostDeleteView, PostUpdateView
 from apps.login.views import RegisterViews
 from apps.login.views import LogoutViews
-from apps.login.views import profile
+from apps.user.views import ProfileViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +28,6 @@ urlpatterns = [
     path('<int:pk>/update/', PostUpdateView.as_view(), name='update'),
     path('resister/', RegisterViews.as_view(), name='resister'),
     path('accounts/logout/', LogoutViews.as_view(), name='logout-page'),
+    path('accounts/profile/', ProfileViews, name='profile-page'),
     path('<int:pk>/delete/', PostDeleteView.as_view(), name='delete'),
-    path('profile/', profile, name='profile')
 ]
