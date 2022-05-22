@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from apps.login.views import loginviews
 from apps.post_space.views import PostDeleteView, PostUpdateView
 from apps.login.views import RegisterViews
@@ -30,4 +32,4 @@ urlpatterns = [
     path('accounts/logout/', LogoutViews.as_view(), name='logout-page'),
     path('accounts/profile/', ProfileViews, name='profile-page'),
     path('<int:pk>/delete/', PostDeleteView.as_view(), name='delete'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

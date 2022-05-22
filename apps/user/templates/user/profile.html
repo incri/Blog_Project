@@ -8,7 +8,9 @@
 </head>
 <body>
     {% block content %}
-        <h1>{{ user.username }}</h1>
+        <img src='{{ user.profile.image.url }}'> 
+        <h2>{{ user.username }}</h2>
+        <P>{{ user.email }}</P>
     {% endblock content %}
 </body>
 </html>
