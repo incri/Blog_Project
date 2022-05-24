@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.signals import user_login_failed
 from django.dispatch import receiver
 from django.utils import timezone
+from apps.user.models import Profile
 
 
 from apps.login.models import UserActivity
@@ -28,3 +29,10 @@ def increase_login_attempts(sender, credentials, request, **kwargs):
         user_activity.login_attempts += 1
         user_activity.can_login_at = timezone.now() + datetime.timedelta(seconds=30)
         user_activity.save()
+
+
+
+@receiver(post_save, sender=User)
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
