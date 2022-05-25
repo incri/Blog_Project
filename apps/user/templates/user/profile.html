@@ -7,10 +7,19 @@
     <title>Document</title>
 </head>
 <body>
+    {% load crispy_forms_tags %}
     {% block content %}
         <img src='{{ user.profile.image.url }}'> 
         <h2>{{ user.username }}</h2>
         <P>{{ user.email }}</P>
+        <div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            <button type="submit">Update</button>
+            </form> 
+        </div>
     {% endblock content %}
 </body>
 </html>

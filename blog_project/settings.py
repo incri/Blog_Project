@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.post_space',
     'apps.login',
     'apps.user',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [

@@ -31,7 +31,6 @@ def increase_login_attempts(sender, credentials, request, **kwargs):
         user_activity.save()
 
 
-
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
