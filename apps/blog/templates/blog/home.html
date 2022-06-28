@@ -16,11 +16,14 @@
         <a href="{% url 'login-page' %}">Login</a>
     {% endif %}
     {% for post in posts %}
+
         <h1>
             {{ post.title }}
         </h1>
+        
         <h3>
-            {{  post.author }}
+    <img src="{{ post.author.profile.image.url }}" alt="Profile Picture">
+    {{  post.author }}
         </h3>
         <p>
             {{ post.content }}
